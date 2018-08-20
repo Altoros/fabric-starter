@@ -1,0 +1,112 @@
+{
+  "fabric": {
+    "cryptodir": "network/fabric/test/crypto-config",
+    "network": {
+      "orderer": {
+        "url": "grpcs://orderer.example.com:7050",
+        "mspid": "OrdererMSP",
+        "domain": "example.com",
+        "user": {
+          "key": "network/fabric/test/crypto-config/ordererOrganizations/example.com/users/Admin@example.com/msp/keystore/b03a2e3bcd59881483b0200a426d0200e4d8c2196a0087fe03a9cedbbe2425b6_sk",
+          "cert": "network/fabric/test/crypto-config/ordererOrganizations/example.com/users/Admin@example.com/msp/signcerts/Admin@example.com-cert.pem"
+        },
+        "server-hostname": "orderer.example.com",
+        "tls_cacerts": "network/fabric/test/crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/tls/ca.crt"
+      },
+      "a": {
+        "name": "orga",
+        "mspid": "aMSP",
+        "domain": "a.example.com",
+        "user": {
+          "key": "network/fabric/test/crypto-config/peerOrganizations/a.example.com/users/Admin@a.example.com/msp/keystore/e4b27ecc7cf074c29f35848d316cbc723f44ba1c0b44e4f8ba05909efbaf17df_sk",
+          "cert": "network/fabric/test/crypto-config/peerOrganizations/a.example.com/users/Admin@a.example.com/msp/signcerts/Admin@a.example.com-cert.pem"
+        },
+        "ca": {
+          "url": "https://ca.a.example.com:7054",
+          "name": "ca-a"
+        },
+        "peer0": {
+          "requests": "grpcs://peer0.a.example.com:7051",
+          "events": "grpcs://peer0.a.example.com:7053",
+          "server-hostname": "peer0.a.example.com",
+          "tls_cacerts": "network/fabric/test/crypto-config/peerOrganizations/a.example.com/peers/peer0.a.example.com/tls/ca.crt"
+        },
+        "peer1": {
+          "requests": "grpcs://peer1.a.example.com:7051",
+          "events": "grpcs://peer1.a.example.com:7053",
+          "server-hostname": "peer1.a.example.com",
+          "tls_cacerts": "network/fabric/test/crypto-config/peerOrganizations/a.example.com/peers/peer1.a.example.com/tls/ca.crt"
+        }
+      },
+      "b": {
+        "name": "orgb",
+        "mspid": "bMSP",
+        "domain": "b.example.com",
+        "user": {
+          "key": "network/fabric/test/crypto-config/peerOrganizations/b.example.com/users/Admin@b.example.com/msp/keystore/b3ec311a316b0f3d1bab8ba4d2b6f67bbedf88d9a5349ad002da11c8db13eb5a_sk",
+          "cert": "network/fabric/test/crypto-config/peerOrganizations/b.example.com/users/Admin@b.example.com/msp/signcerts/Admin@b.example.com-cert.pem"
+        },
+        "ca": {
+          "url": "https://ca.b.example.com:7054",
+          "name": "ca-b"
+        },
+        "peer0": {
+          "requests": "grpcs://peer0.b.example.com:7051",
+          "events": "grpcs://peer0.b.example.com:7053",
+          "server-hostname": "peer0.b.example.com",
+          "tls_cacerts": "network/fabric/test/crypto-config/peerOrganizations/b.example.com/peers/peer0.b.example.com/tls/ca.crt"
+        },
+        "peer1": {
+          "requests": "grpcs://peer1.b.example.com:7051",
+          "events": "grpcs://peer1.b.example.com:7053",
+          "server-hostname": "peer1.b.example.com",
+          "tls_cacerts": "network/fabric/test/crypto-config/peerOrganizations/b.example.com/peers/peer1.b.example.com/tls/ca.crt"
+        }
+      },
+      "c": {
+        "name": "orgc",
+        "mspid": "cMSP",
+        "domain": "c.example.com",
+        "user": {
+          "key": "network/fabric/test/crypto-config/peerOrganizations/c.example.com/users/Admin@c.example.com/msp/keystore/709ea9342f6caa29251908da814bf02eec67aa6748fb7f78cc7209cc97e0a042_sk",
+          "cert": "network/fabric/test/crypto-config/peerOrganizations/c.example.com/users/Admin@c.example.com/msp/signcerts/Admin@c.example.com-cert.pem"
+        },
+        "ca": {
+          "url": "https://ca.c.example.com:7054",
+          "name": "ca-c"
+        },
+        "peer0": {
+          "requests": "grpcs://peer0.c.example.com:7051",
+          "events": "grpcs://peer0.c.example.com:7053",
+          "server-hostname": "peer0.c.example.com",
+          "tls_cacerts": "network/fabric/test/crypto-config/peerOrganizations/c.example.com/peers/peer0.c.example.com/tls/ca.crt"
+        },
+        "peer1": {
+          "requests": "grpcs://peer1.c.example.com:7051",
+          "events": "grpcs://peer1.c.example.com:7053",
+          "server-hostname": "peer1.c.example.com",
+          "tls_cacerts": "network/fabric/test/crypto-config/peerOrganizations/c.example.com/peers/peer1.c.example.com/tls/ca.crt"
+        }
+      }
+    },
+    "channel": [
+      {
+        "name": "common",
+        "config": "network/fabric/test/channel/common.tx",
+        "organizations": ["a", "b", "c"],
+        "deployed": true
+      }
+    ],
+
+    "context": {
+      "add": "common",
+      "query": "common"
+    }
+  },
+  "info" : {
+    "Version": "1.0.0",
+    "Size": "6 Peers",
+    "Orderer": "Kafka",
+    "Distribution": "Single Host"
+  }
+}

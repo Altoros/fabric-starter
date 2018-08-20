@@ -1,0 +1,48 @@
+{
+  "blockchain": {
+    "type": "fabric",
+    "config": "benchmark/test/fabric.json"
+  },
+  "test": {
+    "name": "test",
+    "description" : "This is an example benchmark for caliper, to test the backend DLT's performance with simple adding & querying transactions",
+    "clients": {
+      "type": "local",
+      "number": 5
+    },
+    "rounds": [{
+        "label" : "add",
+        "txNumber" : [10, 50, 100],
+        "rateControl" : [
+          {"type": "fixed-rate", "opts": {"tps" : 50}},
+          {"type": "fixed-rate", "opts": {"tps" : 100}},
+          {"type": "fixed-rate", "opts": {"tps" : 150}}
+        ],
+        "arguments": {  },
+        "callback" : "benchmark/test/add.js"
+      },
+      {
+        "label" : "query",
+        "txNumber" : [50, 500],
+        "rateControl" : [
+          {"type": "fixed-rate", "opts": {"tps" : 100}},
+          {"type": "fixed-rate", "opts": {"tps" : 200}}
+        ],
+        "callback" : "benchmark/test/query.js"
+      }]
+  },
+  "monitor": {
+    "type": ["docker", "process"],
+    "docker":{
+      "name": ["all"]
+    },
+    "process": [
+      {
+        "command" : "node",
+        "arguments" : "local-client.js",
+        "multiOutput" : "avg"
+      }
+    ],
+    "interval": 1
+  }
+}

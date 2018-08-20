@@ -1,0 +1,18 @@
+version: '3'
+services:
+  caliper-base:
+    build: ./caliper
+    working_dir: /usr/src/app
+    command: sh ./scripts/start.sh
+    environment:
+      - FABRIC_VERSION=1.1.0
+    volumes:
+      - ./benchmark:/usr/src/app/benchmark
+      - ./network/fabric:/usr/src/app/network/fabric
+      - ./src/contract/fabric:/usr/src/app/src/contract/fabric
+      - ./scripts:/usr/src/app/scripts
+      - ./reports:/usr/src/app/reports
+networks:
+  default:
+    external:
+      name: dockercompose_default
