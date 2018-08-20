@@ -227,6 +227,10 @@ Finally:
 ./network.sh -m devdown
 ```
 
+## Testing
+
+[Caliper](https://github.com/hyperledger/caliper) is using as testing framework. Please find how to setup test [here](test/readme.md).
+
 ## Acknowledgements
 
 This environment uses a very helpful [fabric-rest](https://github.com/Altoros/fabric-rest) API server developed separately and 
