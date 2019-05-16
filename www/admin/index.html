@@ -43,17 +43,17 @@
 
   <header id="header">
     <nav>
-      <div class="nav-wrapper center">
-        <a href="#" sidenav data-activates="nav-mobile" class="button-collapse top-nav full waves-effect waves-light hide-on-large-only">
-          <i class="material-icons">menu</i>
+      <div class="admin-navigation">
+        <!--<a href="#" sidenav data-activates="nav-mobile" class="button-collapse top-nav full waves-effect waves-light hide-on-large-only">-->
+          <!--<i class="material-icons">menu</i>-->
+        <!--</a>-->
+
+
+        <a href="/" class="admin-logo">
+          <img src="images/altoros-logo.svg" alt="" class="admin-logo-img">
         </a>
 
-        <a class="logo pull-right" href="#">
-          <img class="hide-on-med-and-down" src="images/logo.png" alt="Altoros logo">
-          <img class="hide-on-large-only" src="images/logo-small.png" alt="Altoros logo small">
-        </a>
-
-        <div class="title hide-on-med-and-down pull-left">{{::_config.org}}</div>
+        <!--<div class="title hide-on-med-and-down pull-left">{{::_config.org}}</div>-->
 
         <ul class="menu hide-on-med-and-down" ng-cloak ng-show="ctrl.authorized()">
           <li ng-repeat="state in ctrl.$state.get()|filter:ctrl.visibleMenuItem">
@@ -102,7 +102,7 @@
     </ul>
   </aside>
 
-  <blockchain-log></blockchain-log>
+  <!--<blockchain-log></blockchain-log>-->
 
   <main id="content">
     <div id="page-content">
