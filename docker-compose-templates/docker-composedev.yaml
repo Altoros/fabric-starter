@@ -5,7 +5,7 @@ services:
     container_name: orderer
     image: hyperledger/fabric-orderer:FABRIC_VERSION
     environment:
-      - ORDERER_GENERAL_LOGLEVEL=debug
+      - ORDERER_GENERAL_LOGLEVEL=info
       - ORDERER_GENERAL_LISTENADDRESS=0.0.0.0
       - ORDERER_GENERAL_GENESISMETHOD=file
       - ORDERER_GENERAL_GENESISFILE=dev-genesis.block
@@ -30,7 +30,7 @@ services:
       - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer:7051
       - CORE_PEER_LOCALMSPID=DEFAULT
       - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
-      - FABRIC_LOGGING_SPEC=DEBUG
+      - FABRIC_LOGGING_SPEC=INFO
       - CORE_CHAINCODE_LOGGING_LEVEL=DEBUG
       - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp
     volumes:
@@ -51,7 +51,7 @@ services:
     environment:
       - GOPATH=/opt/gopath
       - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
-      - FABRIC_LOGGING_SPEC=DEBUG
+      - FABRIC_LOGGING_SPEC=INFO
       - CORE_PEER_ID=cli
       - CORE_PEER_ADDRESS=peer:7051
       - CORE_PEER_LOCALMSPID=DEFAULT
@@ -79,7 +79,7 @@ services:
 #    environment:
 #      - GOPATH=/opt/gopath
 #      - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
-#      - FABRIC_LOGGING_SPEC=DEBUG
+#      - FABRIC_LOGGING_SPEC=INFO
 #      - CORE_PEER_ID=example02
 #      - CORE_PEER_ADDRESS=peer:7051
 #      - CORE_PEER_LOCALMSPID=DEFAULT

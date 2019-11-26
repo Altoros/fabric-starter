@@ -13,7 +13,7 @@ services:
     container_name: orderer.DOMAIN
     image: hyperledger/fabric-orderer:FABRIC_VERSION
     environment:
-      - ORDERER_GENERAL_LOGLEVEL=debug
+      - ORDERER_GENERAL_LOGLEVEL=info
       - ORDERER_GENERAL_LISTENADDRESS=0.0.0.0
       - ORDERER_GENERAL_GENESISMETHOD=file
       - ORDERER_GENERAL_GENESISFILE=/etc/hyperledger/configtx/genesis.block
