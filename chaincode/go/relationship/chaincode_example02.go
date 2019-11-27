@@ -2,6 +2,7 @@
 package main
 
 import (
+	"fmt"
 	"strconv"
 
 	"github.com/hyperledger/fabric/core/chaincode/shim"
@@ -78,6 +79,10 @@ func (t *SimpleChaincode) Invoke(stub shim.ChaincodeStubInterface) pb.Response {
 	} else if function == "query" {
 		// the old "Query" is now implemented in invoke
 		return t.query(stub, args)
+	} else if function == "getResponse" {
+		return t.getResponse(stub, args)
+	} else if function == "invokeChaincode" {
+		return t.invokeChaincode(stub, args)
 	}
 
 	return pb.Response{Status:403, Message:"Invalid invoke function name."}
@@ -178,6 +183,31 @@ func (t *SimpleChaincode) query(stub shim.ChaincodeStubInterface, args []string)
 	}
 
 	return shim.Success(valBytes)
+}
+
+func (t *SimpleChaincode) getResponse(stub shim.ChaincodeStubInterface, args []string) pb.Response {
+	return shim.Success([]byte("response from relationship"))
+}
+
+func toByteArray(args []string) [][]byte {
+	res := [][]byte{}
+	for _, arg := range args {
+		res = append(res, []byte(arg))
+	}
+
+	return res
+}
+
+func (t *SimpleChaincode) invokeChaincode(stub shim.ChaincodeStubInterface, args []string) pb.Response {
+	channelName := args[0]
+	chaincodeName := args[1]
+	chaincodeArgs := args[2:]
+
+	response := stub.InvokeChaincode(chaincodeName, toByteArray(chaincodeArgs), channelName)
+	logger.Debug(fmt.Sprintf("Response: status %d, message \"%s\", payload {%s}",
+		response.Status, response.Message, string(response.Payload)))
+
+	return response
 }
 
 var getCreator = func (certificate []byte) (string, string) {
