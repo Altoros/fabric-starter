@@ -381,6 +381,7 @@ function generatePeerArtifacts() {
     # nginx proxy config
     sed -e "s/DOMAIN/$DOMAIN/g" \
         -e "s/ORG/$org/g" \
+        -e "s/WWW_PORT/$www_port/g" \
         -e "s/API_PORT/${DEFAULT_API_PORT}/g" \
         $TEMPLATES_ARTIFACTS_FOLDER/nginx.conf > $GENERATED_ARTIFACTS_FOLDER/"nginx-$org.conf"
 
