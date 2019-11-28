@@ -61,6 +61,18 @@ angular.module('altrs.app',[
       }
     })
 
+    .state('app.info', {
+      url: 'info',
+      templateUrl: 'pages/info.html',
+      controller: 'InfoController',
+      controllerAs: 'ctl',
+      data:{
+        default: true,
+        name: 'Info',
+        guest:false
+      }
+    })
+
     .state('app.query', {
       url: 'query',
       templateUrl: 'pages/query.html',
@@ -72,19 +84,6 @@ angular.module('altrs.app',[
         // default:true
       }
     })
-
-    .state('app.info', {
-      url: 'info',
-      templateUrl: 'pages/info.html',
-      controller: 'InfoController',
-      controllerAs: 'ctl',
-      data:{
-        default: true,
-        name: 'Info',
-        guest:false
-      }
-    });
-
 })
 
 // THIS method should be called BEFORE navigateDefault()

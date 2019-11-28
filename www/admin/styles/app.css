@@ -1,3 +1,24 @@
+@font-face {
+  font-family: "Proxima Nova";
+  font-style: normal;
+  font-weight: 300;
+  src: url("../fonts/Proxima-Nova-Regular.woff") format("woff")
+}
+
+@font-face {
+  font-family: "Proxima Nova";
+  font-style: normal;
+  font-weight: 500;
+  src: url("../fonts/Proxima-Nova-Semibold.woff") format("woff")
+}
+
+@font-face {
+  font-family: "Proxima Nova";
+  font-style: normal;
+  font-weight: 600;
+  src: url("../fonts/Proxima-Nova-Bold.woff") format("woff")
+}
+
 .error{
   color: #F44336;
 }
@@ -131,4 +152,304 @@ ul.list{
 }
 ul.list li{
  list-style-type: disc;
+}
+
+
+.admin-container {
+  padding: 0 20px;
+}
+
+
+
+
+
+
+/* New admin styles*/
+
+/* remove footer */
+.foot3 {
+  display: none;
+}
+
+
+body {
+  color: #1B263C;
+  font: 300 14px 'Proxima Nova', sans-serif;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.admin-h2 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.admin-layout {
+  display: flex;
+  margin: 0 -10px;
+}
+
+.admin-layout-left {
+  flex: 0 0 40%;
+  padding: 0 10px;
+}
+
+.admin-layout-right {
+  flex: 0 0 60%;
+  padding: 0 10px;
+}
+
+.button {
+  padding: 3px 26px 2px;
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-color: transparent;
+  border: 2px solid #d3dae0;
+  color: #687585;
+  line-height: 1.5;
+  border-radius: 26px;
+  font-size: 12px;
+  text-transform: uppercase;
+  transition: all 0.2s ease-in-out;
+}
+
+.button:focus,
+.button:active {
+  background-color: transparent;
+  border: 2px solid #d3dae0;
+  color: #687585;
+}
+
+.button-lg {
+  padding: 14px;
+  min-width: 180px;
+}
+
+.button-primary {
+  border: 2px solid transparent;
+  background-color: #69D7BC;
+  color: white;
+}
+
+.button-primary:active,
+.button-primary:focus,
+.button-primary:hover {
+  background-color: #3FBEA5;
+  color: white;
+}
+
+.admin-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  padding: 0 20px;
+}
+
+.admin-navigation ul a {
+  color: black;
+  background-color: transparent;
+}
+
+.admin-logo {
+  display: inline-block;
+  height: 24px;
+}
+
+.admin-logo-img {
+  display: block;
+}
+
+
+.admin-dropdown {
+  margin-bottom: 10px;
+}
+.admin-dropdown-header {
+  padding: 0 30px;
+  background-color: #1B263C;
+  color: white;
+  display: flex!important;
+  align-items: center;
+  justify-content: space-between;
+  height: 50px!important;
+  line-height: 50px!important;
+
+}
+
+.admin-dropdown-header__quantity {
+  width: 58px;
+  height: 29px;
+  border-radius: 21px;
+  background-color: #D3DAE0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+}
+
+.admin-dropdown-header:after,
+.admin-dropdown-header:before {
+  display: none!important;
+
+}
+
+.admin-dropdown-header__chevron {
+
+}
+
+.admin-dropdown-content {
+  display: none;
+  box-shadow: 0px 1px 9px rgba(27, 38, 60, 0.18);
+  background-color: #fff;
+}
+.admin-dropdown input[type="checkbox"]:checked ~ .admin-dropdown-content{
+  display: block;
+}
+
+.admin-dropdown-header .chevron {
+  margin-left: 10px;
+}
+.admin-dropdown input[type="checkbox"]:checked ~ .admin-dropdown-header .chevron {
+  transform: rotate(180deg);
+}
+
+
+.admin-dropdown-content dl{
+  margin: 0;
+}
+.admin-dropdown-content dt{
+  padding: 9px 35px;
+  background-color: #F8F9FA;
+}
+.admin-dropdown-content dd{
+  margin: 0;
+  padding: 7px 47px;
+}
+
+.admin-dropdown-content ul{
+  margin: 0;
+  padding: 10px 30px;
+
+}
+.admin-dropdown-content li {
+  list-style-type: none!important;
+  padding: 7px 0;
+}
+
+.admin-table-wrap {
+  padding: 0 20px 20px;
+  box-shadow: 0 1px 9px rgba(27, 38, 60, 0.18);
+  background-color: white;
+}
+
+.admin-table {
+  background-color: white;
+}
+.admin-table thead {
+  border-bottom: none;
+}
+.admin-table thead tr:hover {
+  background-color: transparent;
+}
+.admin-table tr:hover {
+  background-color: #D3F3E8;
+}
+
+.admin-table th,
+.admin-table td {
+  font-size: 14px;
+  padding: 7px 10px;
+}
+
+.admin-table td {
+  border-bottom: 1px solid #F6F8F9;
+}
+
+.popup-overlay {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 20;
+  background-color: rgba(16, 22, 26, 0.7);
+  overflow: auto;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup {
+  width: 100%;
+  max-width: 560px;
+  margin: 0 auto;
+  box-shadow: 0 1px 9px rgba(27, 38, 60, 0.18);
+}
+
+.popup-header {
+  padding: 17px;
+  background-color: #1B263C;
+  text-align: center;
+  color: white;
+  font-size: 18px;
+}
+.popup-body {
+  padding: 30px;
+  background-color: #fff;
+}
+
+.popup-buttons {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.popup-buttons .button {
+  margin: 5px 10px;
+}
+
+.popup-body-form-inner {
+  max-width: 274px;
+  margin: 0 auto;
+}
+
+
+/*froms*/
+.form-group {
+  margin-bottom: 10px;
+}
+
+input.form-control {
+  border-radius: 1px;
+  border: 1px solid #d3dae0;
+  box-shadow: none;
+  font: 300 14px Proxima Nova,sans-serif;
+  background: #F8F9FA;
+  height: 30px;
+  padding: 0 10px;
+  margin: 0;
+  display: block;
+  box-sizing: border-box;
+}
+
+input.form-control:focus {
+  border: 1px solid #d3dae0!important;
+  box-shadow: none!important;
+}
+
+.form-group label {
+  display: inline-block;
+  margin-bottom: 5px;
+  font-size: 14px;
+  font-weight: 300;
+  color: #1B263C;
 }
